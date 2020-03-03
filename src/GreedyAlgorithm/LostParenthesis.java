@@ -10,10 +10,7 @@ public class LostParenthesis {
 		Scanner a = new Scanner(System.in);
 		String [] calc = a.next().split("\\-");
 		int minimum = 0;
-		for(String i : calc) {
-			System.out.println(i);
-		}
-/*		
+		
 		for(int i=0;i<calc.length;i++) {
 			int num = sum(calc[i]);
 			
@@ -31,6 +28,5 @@ public class LostParenthesis {
 			result += Integer.parseInt(i);	//문자열을 정수형으로 반환해준다.
 		}
 		return result;
-	}*/
 	}
 }
