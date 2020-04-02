@@ -23,19 +23,25 @@ public class WordSort {
 		//길이로 정렬
 		Collections.sort(list, new Comparator<String>() {
 			public int compare(String o1, String o2) {
-				if(o1.length() == o2.length()) {
+				if(o1.length() > o2.length())
 					return 1;
-				}
-				return Integer.compare(o1.length(), o2.length());
+				else if(o1.length() < o2.length())
+					return -1;
+				else
+					return o1.compareTo(o2);		//알파벳순서로 나열
 			}
 		});
-		
-		System.out.println(list.get(0));
-		for(int i=1; i<N; i++) {
-		if(list.get(i-1).equals(list.get(i))) {
-			continue;
-		}
+			
+			
+		//중복된 글자가 있다면 뛰어넘겠다.
+		for(int i=0; i<N; i++) {
+			if( i == N-1) {
+			  System.out.println(list.get(N-1));
+			}else if(list.get(i).equals(list.get(i+1))) {
+				continue;
+			}else
 			System.out.println(list.get(i));
 		}
+		
 	}
 }
