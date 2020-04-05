@@ -4,6 +4,8 @@ package DFSandBFS;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class DF_BFS_EX {
@@ -29,8 +31,27 @@ public class DF_BFS_EX {
 		}
 		//dfs 시작.
 		dfs(V,N);
-		System.out.println();				//bfs 위해 줄바꿈!
-		visit = new boolean[N+1];
+ 		System.out.println();				//bfs 위해 줄바꿈!
+		visit = new boolean[N+1];			//bfs를 위한 visit 초기화!
+		bfs(V,N);
+		}
+
+	private static void bfs(int v, int n) {
+		Queue<Integer> qu = new <Integer> LinkedList ();
+		
+		qu.add(v);
+		while(!qu.isEmpty()) {
+			int temp = qu.poll();
+			visit[temp] = true;
+			System.out.print(temp+" ");
+			for(int i=1; i<=n; i++) {
+				if(map[temp][i] == 1 && !visit[i]) {
+					qu.add(i);
+					visit[i]=true;
+				}
+			}
+			
+		}
 	}
 
 	private static void dfs(int V, int n) {
