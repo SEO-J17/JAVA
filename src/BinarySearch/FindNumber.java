@@ -17,7 +17,6 @@ public class FindNumber {
 			arr1[i] = Integer.parseInt(st.nextToken());
 		}
 		Integer M = Integer.parseInt(a.readLine());	
-		int [] arr2 = new int [M];
 		StringTokenizer st2 = new StringTokenizer(a.readLine());
 		Arrays.sort(arr1);
 		//ÀÌºÐ Å½»ö
