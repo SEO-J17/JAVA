@@ -13,9 +13,11 @@ public class FindNumber {
 		Integer N = Integer.parseInt(a.readLine());	
 		int [] arr1 = new int [N];
 		StringTokenizer st = new StringTokenizer(a.readLine());
+		
 		for(int i=0; i<N; i++) {
 			arr1[i] = Integer.parseInt(st.nextToken());
 		}
+		
 		Integer M = Integer.parseInt(a.readLine());	
 		StringTokenizer st2 = new StringTokenizer(a.readLine());
 		Arrays.sort(arr1);
