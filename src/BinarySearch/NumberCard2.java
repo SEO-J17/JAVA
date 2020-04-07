@@ -10,6 +10,7 @@ import java.util.StringTokenizer;
 
 public class NumberCard2 {
 	static int [] cards;
+	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader a = new BufferedReader(new InputStreamReader(System.in));
 		Integer N = Integer.parseInt(a.readLine());	
