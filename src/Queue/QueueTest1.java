@@ -18,7 +18,7 @@ public class QueueTest1 {
 			String command = st.nextToken();
 			if(command.contains("push")) {
 				Integer data =Integer.parseInt(st.nextToken()); 
-				qu.add(data);
+				qu.addLast(data);
 			}else if(command.equals("pop")) {
 				System.out.println(qu.isEmpty()? -1 : qu.poll());
 			}else if(command.equals("size")) {

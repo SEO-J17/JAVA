@@ -13,7 +13,7 @@ public class CutTree {
 		BufferedReader a = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(a.readLine());
 		Integer tree = Integer.parseInt(st.nextToken());
-		Integer minmum = Integer.parseInt(st.nextToken());
+		Integer minimum = Integer.parseInt(st.nextToken());
 		int [] treemeter = new int [tree];
 		StringTokenizer st2 = new StringTokenizer(a.readLine());
 		
@@ -25,8 +25,14 @@ public class CutTree {
 		int start =0;
 		int end = treemeter[tree-1];		//나무의 최대길이
 		int mid = (start+end)/2;			//절단기의 중간값
+		int sum = 0;
 		
-		for(int w=0; w<tree; w++) {
+		while(true) {
+			if(minimum <= mid) {
+				System.out.println(minimum);
+				break;
+			}
+			mid = (start+end)/2;
 			
 		}
 		

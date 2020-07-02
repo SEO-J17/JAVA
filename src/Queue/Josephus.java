@@ -1,3 +1,5 @@
+//요세푸스 수열,1~N까지 수가 있을때 원형으로 k을 입력받아 k번째사람은 빼고 k번째 부터 정렬한다.
+//11866
 package Queue;
 
 import java.io.BufferedReader;
