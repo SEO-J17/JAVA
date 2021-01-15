@@ -9,34 +9,35 @@ public class ÀÏ°ö³­ÀïÀÌ {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
 		int candi[] = new int [9];
-		int result[] = new int [7];
+		int sum=0;
+		boolean chk = false;
+		
 			for (int i = 0; i < 9; i++) {
 				candi[i] = Integer.parseInt(br.readLine());
+				sum+=candi[i];
 			}
 			
-			while(true) {
-				int sum = 0;
-				for(int i =0; i < 7; i++){
-					sum += candi[i];
-				}
-				if(sum == 100) {
-					for(int i =0; i < 7; i++){
-						result[i] = candi[i];
-					}
-					Arrays.sort(result);
-					for(int d: result)
-						sb.append(d+"\n");
-						
-						System.out.println(sb);
-						break;
-				}else {
-					for(int i=1; i < 9; i++) {
-						int tmp = candi[i-1];
-						candi[i-1] = candi[i];
-						candi[i] = tmp;
+			for(int i=0; i < 9; i++) {
+				for(int j = 0; j < 9; j++) {
+					if(i == j)
+						continue;
+					else if(sum - candi[i] - candi[j] == 100){
+						candi[i]=0;
+						candi[j]=0;
+						chk = true;  
 					}
 				}
+				if(chk == true) break;
 			}
+				
+			Arrays.sort(candi);
+			
+			for(int d: candi)
+				if(d !=0)
+					sb.append(d+"\n");
+			
+			System.out.print(sb);
+			
 	}
 }
 
