@@ -15,10 +15,26 @@ public class Επ»η {
 		}
 		
 		int max=0;
+		if( arr[n-1][0] != 1) {
+			arr[n-1][1] =0;
+		}
 		for(int i=0; i < n; i++) {
 			int sum=0;
-			for(int j=0; j < n; j++) {
-				
+			int cnt=i;
+			for(int j=cnt; j < n; j++) {
+					if(cnt <= n && (arr[j][0]+cnt) <= n) {
+							sum += arr[j][1];
+							cnt += arr[j][0];
+					}else
+						 break;
+				}
+					
+			if(sum > max) {
+				max = sum;
+			}
+			if(i == n-1) {
+				System.out.print(max);
+				break;
 			}
 		}
 		
