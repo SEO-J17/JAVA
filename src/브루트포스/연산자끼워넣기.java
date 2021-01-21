@@ -5,8 +5,8 @@ package 브루트포스;
 import java.util.*;
 import java.io.*;
 public class 연산자끼워넣기 {
-	static int max;
-	static int min;
+	static int max = Integer.MIN_VALUE;
+	static int min = Integer.MAX_VALUE;
 	static int n; 
 	static int arr[] ;
 	static int op[] = new int [4];
@@ -16,16 +16,16 @@ public class 연산자끼워넣기 {
 		arr = new int [n];
 		
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		StringTokenizer st2 = new StringTokenizer(br.readLine());
 		for(int i=0; i < n; i++) {arr[i] = Integer.parseInt(st.nextToken());}
-		for(int i=0; i < 4; i++) {op[i] = Integer.parseInt(st2.nextToken());}
+		st = new StringTokenizer(br.readLine());
+		for(int i=0; i < 4; i++) {op[i] = Integer.parseInt(st.nextToken());}
 		
 		calc(arr[0], 1);
 		System.out.println(max);
 		System.out.println(min);
 	}
 	
-	private static void calc(int num, int index) {
+	public static void calc(int num, int index) {
 		if(index == n) {
 			max = Math.max(max, num);
 			min = Math.min(min, num);
