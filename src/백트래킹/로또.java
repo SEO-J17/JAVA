@@ -1,3 +1,4 @@
+//6603
 package 백트래킹;
 import java.io.*;
 import java.util.*;
@@ -8,6 +9,7 @@ public class 로또 {
 	static StringBuilder sb = new StringBuilder();
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
 		while(true) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			k = Integer.parseInt(st.nextToken());
@@ -33,7 +35,7 @@ public class 로또 {
 	
 	private static void calc(int index, int depth) {
 		if(depth == 6) {
-			for(int i=0; i<k; i++) {
+			for(int i=0; i < k; i++) {
 				if(visit[i] == true)
 					sb.append(arr[i]).append(" ");
 			}
@@ -42,7 +44,7 @@ public class 로또 {
 		}
 		
 		
-		for(int i=index; i<k; i++) {
+		for(int i=index; i < k; i++) {
 			if(visit[i] != true) {
 				visit[i]=true;
 				calc(i+1,depth+1);
