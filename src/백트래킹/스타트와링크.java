@@ -55,14 +55,13 @@ public class 스타트와링크 {
 				
 			}
 		}
-		int result = Math.abs(tm1-tm2);
 		
+		int result = Math.abs(tm1-tm2);
 		if(result == 0) {
 			System.out.println(result);
 			System.exit(0);
 		}
 		
 		minimum = Math.min(result, minimum);
-		
 	}
 }
