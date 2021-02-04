@@ -29,7 +29,7 @@ public class N°úM {
 				arr[deep] = i+1;
 				dfs(cnt, leng, deep+1);
 				chk[i] = false;
-			}
+			} 
 		}
 		
 	}
