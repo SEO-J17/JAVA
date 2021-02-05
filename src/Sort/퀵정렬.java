@@ -35,6 +35,7 @@ public class ÄüÁ¤·Ä {
 			
 		}
 		
+		
 	}
 
 	private static void swap(int[] arr, int i, int j) {
