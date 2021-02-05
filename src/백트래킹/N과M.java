@@ -13,7 +13,7 @@ public class N°úM {
 	chk = new boolean [cnt];
 	dfs(cnt, leng, 0);
 	}
-	
+
 	public static void dfs(int cnt, int leng, int deep) {
 		if(deep == leng) {
 			for(int d : arr)
