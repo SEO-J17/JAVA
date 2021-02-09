@@ -13,7 +13,6 @@ public class 파도반수열 {
 		arr[1]=arr[2]=arr[3]=1;
 		arr[4]=arr[5]=2;
 		arr[6]=3;
-		
 		for(int i=7; i<=100; i++) {
 			arr[i] = arr[i-1]+arr[i-5];
 		}
