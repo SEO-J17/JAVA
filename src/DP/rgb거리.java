@@ -3,47 +3,25 @@ package DP;
 import java.util.*;
 import java.io.*;
 public class rgb거리 {
-	static int arr1[][],arr2[];
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(br.readLine());
-		arr1 = new int [n][n];
-		arr2 = new int [n];
-		visit = new boolean [n+1][n+1];
+		int [][] arr = new int [n][3];
 		
 		for(int i=0; i<n; i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
-			for(int j=0; j<n; j++) {
-				arr[i][j] = Integer.parseInt(st.nextToken());
-			}
-		}
-		calc(0,0);
-		System.out.println(result);
-		
-	}
-	
-	
-	private static void calc(int index,int depth){
-		if(depth == n) {
-			int temp =0;
-			for(int i=0; i<n; i++) {
-					temp += arr2[i];
-			}
-			if(temp < result) {
-				result = temp;
-				return;
-			}else
-				return;
+			arr[i][0] = Integer.parseInt(st.nextToken());			//red 
+			arr[i][1] = Integer.parseInt(st.nextToken()); 			//green
+			arr[i][2] = Integer.parseInt(st.nextToken());			//blue 
 		}
 		
-		for(int i=index; i<n; i++) {
-			if(visit[depth][i] != true) {			//방문하지 않았다면.
-				visit[depth][i] = true;
-				arr2[depth] = arr[index][i]; 
-				calc(index+1,depth+1);
-				visit[depth][i] = false;
-			}
+		for(int i=1; i<n; i++) {
+			arr[i][0] += Math.min(arr[i-1][1],arr[i-1][2]);
+			arr[i][1] += Math.min(arr[i-1][0],arr[i-1][2]);
+			arr[i][2] += Math.min(arr[i-1][0],arr[i-1][1]);
 		}
+		
+		System.out.println(Math.min(Math.min(arr[n-1][0],arr[n-1][1]), arr[n-1][2]));
 		
 		
 	}
