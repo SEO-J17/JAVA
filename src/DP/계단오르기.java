@@ -1,3 +1,4 @@
+//2579
 package DP;
 import java.util.*;
 
@@ -28,7 +29,6 @@ public class 계단오르기 {
 
 	
 	private static int calc(int n) {
-		
 		if(result[n] == null) {
 			result[n] = Math.max(calc(n-2),calc(n-3)+arr[n-1])+arr[n];
 			
