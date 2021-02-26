@@ -33,3 +33,4 @@ public class 로프 {
 }
 
 //역정렬은 integer배열만 가능!
+//Arrays.sort(arr, Collections.reverseOrder()); 알아둘것.
