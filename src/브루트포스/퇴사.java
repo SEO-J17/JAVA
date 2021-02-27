@@ -27,8 +27,10 @@ public class Επ»η {
 			return;
 		}
 		
-		if(date+day[date] <=n) calc(date+day[date], pay+money[date]);
-		else calc(date+day[date], pay);
+		if(date+day[date] <=n) 
+			calc(date+day[date], pay+money[date]);
+			else 
+				calc(date+day[date], pay);
 		
 		calc(date+1, pay);
 		
