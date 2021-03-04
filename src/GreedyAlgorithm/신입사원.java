@@ -14,9 +14,7 @@ public class 신입사원 {
 			
 			for(int i=0; i<num; i++) {
 				StringTokenizer st = new StringTokenizer(br.readLine());
-				int a = Integer.parseInt(st.nextToken());
-				int b = Integer.parseInt(st.nextToken());
-				grade[a] = b;
+				grade[Integer.parseInt(st.nextToken())] = Integer.parseInt(st.nextToken());
 			}
 			
 			int temp = grade[1];
