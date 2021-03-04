@@ -17,6 +17,7 @@ public class 신입사원 {
 				grade[Integer.parseInt(st.nextToken())] = Integer.parseInt(st.nextToken());
 			}
 			
+			//오름차순으로 정렬되어있기에 두번째 값을 비교하면 된다!
 			int temp = grade[1];
 			for(int i=2; i<=num; i++) {
 				if(temp > grade[i]) {
