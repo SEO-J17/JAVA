@@ -3,8 +3,8 @@ import java.io.*;
 import java.util.*;
 public class ¹Ì·ÎÅ½»ö {
 	static int n,m;
-	static int [] dx = {0,1,0,-1};		//»ó¿ìÁÂÇÏ
-	static int [] dy = {1,0,-1,0};
+	static int [] dx = {1,0,-1,0};		//»ó¿ìÁÂÇÏ
+	static int [] dy = {0,1,0,-1};
 	static int [][] maze;
 	static boolean [][] visit;
 	public static void main(String[] args) throws IOException {
