@@ -52,7 +52,7 @@ public class 단지번호붙이기 {
 		while(!qu.isEmpty()) {
 			Point now = qu.poll();
 			
-			for(int s=0; s<4; s++) {
+			for(int s=0; s<4; s++) {			//상하좌우
 				x = now.x+dx[s];
 				y = now.y+dy[s];
 				
