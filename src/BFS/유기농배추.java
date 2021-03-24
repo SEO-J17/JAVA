@@ -21,6 +21,7 @@ public class ¿Ø±‚≥ÛπË√ﬂ {
 			map = new int [m][n];
 			visit = new boolean [m][n];
 			int warm = 0;
+			
 			for(int i=0; i<k; i++) {
 				st = new StringTokenizer(br.readLine());
 				map[Integer.parseInt(st.nextToken())][Integer.parseInt(st.nextToken())] = 1;
