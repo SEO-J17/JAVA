@@ -6,12 +6,13 @@ public class ¼¶ÀÇ°³¼ö {
 	static int w,h;
 	static int arr[][];
 	static boolean visit[][];
-	static int dx[] = {0,0,-1,1,-1,1,-1,1};
-	static int dy[] = {1,-1,0,0,1,1,-1,-1};
+	static int dx[] = {0,0,-1,1,-1,1,-1,1};		//xÁÂÇ¥
+	static int dy[] = {1,-1,0,0,1,1,-1,-1};		//yÁÂÇ¥
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
+		
 		while(true) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			w = Integer.parseInt(st.nextToken());
@@ -41,7 +42,6 @@ public class ¼¶ÀÇ°³¼ö {
 			} 
 			sb.append(cnt).append("\n");
 		}		
-		
 		System.out.println(sb);
 	}
 	
