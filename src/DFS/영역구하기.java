@@ -57,6 +57,7 @@ public class 영역구하기 {
 	private static void dfs(int x, int y) {
 		visit[x][y] = true;
 		cnt++;
+		
 		for(int i = 0; i < 4; i++) {
 			int xx = dx[i] + x;
 			int yy = dy[i] + y;
