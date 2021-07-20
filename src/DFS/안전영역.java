@@ -16,7 +16,7 @@ public class 안전영역 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		n = Integer.parseInt(br.readLine());
 		arr = new int [n][n];
-		arr2 = new int [n][n];
+		arr2 = new int [n][n];		//arr2의 복제 배열. 침수 표시를 하기 위함.
 		
 		
 		for(int i = 0; i < n; i++) {
