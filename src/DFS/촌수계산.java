@@ -20,15 +20,43 @@ public class ÃÌ¼ö°è»ê {
 		
 		for(int i = 1; i <= m; i++) {
 			st = new StringTokenizer(br.readLine());
-			arr[Integer.parseInt(st.nextToken())][i] = Integer.parseInt(st.nextToken()); 
+			int a1 = Integer.parseInt(st.nextToken());
+			int a2 = Integer.parseInt(st.nextToken());
+			arr[a1][a2] = arr[a2][a1] = 1;
 		}
 		
-		for(int i = 1; i <= m; i++) {
-			bfs(i,)
+		bfs(man1, man2);
+		
+		if(num != 0) {
+			System.out.println(num);
+		}else
+			System.out.println(-1);
+		
+		
+		
+		
+	}
+	
+	private static void bfs(int man_1, int man_2) {
+		boolean[] visit = new boolean [n+1];
+		Queue<Integer> qu = new LinkedList<>();
+		visit[man_1] = true;
+		qu.add(man_1);
+		
+		while(!qu.isEmpty()) {
+			for(int i = 0; i < qu.size(); i++) {
+				int now = qu.poll();
+				if(man_1 == man_2) {
+					return;
+				}
+				for(int j = 1; j <= n; j++) {
+					if(arr[now][j] == 1 && !visit[j]) {
+						visit[j] = true;
+						qu.add(j);
+					}
+				}
+			}
+			num++;
 		}
-		
-		
-		
-		
 	}
 }
