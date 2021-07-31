@@ -19,25 +19,27 @@ public class BF_ÀÏ°ö³­ÀïÀÌ {
  		
  		for(int i = 0; i < 9; i++) {
  			for(int j = 0; j < 9; j++) {
- 				if(i == j) {
+ 				
+ 				if(i == j) 
  					continue;
- 				}
+ 				
  				if(sum - arr[i] -arr[j] == 100) {
  					arr[i] = 0;
  					arr[j] = 0;
  					chk = true;
  				}
  			}
- 			if(chk == true) {
+ 			
+ 			if(chk == true) 
  				break;
- 			}
+ 		
  		}
  		
  		Arrays.sort(arr);
 
  		for(int d : arr) {
  			if(d != 0)
- 			System.out.println(d);
+ 				System.out.println(d);
  		}
 	}
 	
