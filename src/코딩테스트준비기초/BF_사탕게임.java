@@ -4,7 +4,6 @@ import java.io.*;
 import java.util.*;
 public class BF_ªÁ≈¡∞‘¿” {
 	static char arr[][];
-	static boolean visit[][];
 	static int n;
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
