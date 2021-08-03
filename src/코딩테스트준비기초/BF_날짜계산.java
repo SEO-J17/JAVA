@@ -1,5 +1,5 @@
+//1467
 package 코딩테스트준비기초;
-
 import java.io.*;
 import java.util.*;
 
