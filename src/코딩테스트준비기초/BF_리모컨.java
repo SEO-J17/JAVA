@@ -7,28 +7,37 @@ import java.util.*;
 public class BF_¸®¸ðÄÁ {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String channel = br.readLine();
+		int channel = Integer.parseInt(br.readLine());
 		int m = Integer.parseInt(br.readLine());
-		int trouble [] = new int [m];
-		int remote [] = new int [10];
 		
-		for(int i = 0; i < 10; i++) {
-			remote[i] = i;
-		}
-		
+		boolean trouble [] = new boolean [10];
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		
 		for(int i = 0; i < m; i++) {
-			remote[Integer.parseInt(st.nextToken())] = 44;
+			int temp = Integer.parseInt(st.nextToken());
+			trouble[temp] = true;
 		}
 		
-		String temp = "";
-		int temp2 = 0;
-		while(true) {
-			for(int i = 0; i < 10; i++) {
-				
+		int result = Math.abs(channel - 100);
+		
+		for(int i = 0; i <= 999999; i++) {
+			String temp = String.valueOf(i);
+			int len = temp.length();
+			
+			boolean chk = false;
+			for(int j = 0; j < len; j++) {
+				if(trouble[temp.charAt(j) - '0']) {
+					chk = true;
+					break;
+				}
+			}
+			
+			if(!chk) {
+				int min = Math.abs(channel - i) + len;
+				result = Math.min(min, result);
 			}
 		}
+		
+		System.out.println(result);
 		
 	}
 }
