@@ -15,8 +15,10 @@ public class BF_테트로미노 {
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		n = Integer.parseInt(st.nextToken());
 		m = Integer.parseInt(st.nextToken());
+		
 		arr = new int [n][m];
 		visit = new boolean [n][m];
+		
 		for(int i = 0; i < n; i++) {
 			st = new StringTokenizer(br.readLine());
 			for(int j = 0; j < m; j++) {
@@ -52,7 +54,8 @@ public class BF_테트로미노 {
 					dfs(xx,yy,depth + 1, result + arr[xx][yy]);
 					visit[xx][yy] = false;
 				}
-			}
+			}else 
+				continue;
 		}
 	}
 	
