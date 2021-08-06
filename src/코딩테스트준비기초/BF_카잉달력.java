@@ -7,7 +7,6 @@ import java.io.*;
 public class BF_Ä«À×´Þ·Â {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringBuilder sb = new StringBuilder();
 		int tc = Integer.parseInt(br.readLine());
 
 		for (int i = 0; i < tc; i++) {
@@ -20,16 +19,16 @@ public class BF_Ä«À×´Þ·Â {
 
 			for (int j = x; j < (n * m); j += m) {
 				if (j % n == y) {
-					sb.append(j + 1).append("\n");
+					System.out.println(j + 1);
 					excep = true;
 					break;
 				}
 			}
+			
 			if (!excep)
-				sb.append(-1).append("\n");
+				System.out.println(-1);
+			
 		}
-
-		System.out.println(sb);
 
 	}
 }
