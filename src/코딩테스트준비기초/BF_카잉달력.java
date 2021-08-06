@@ -5,36 +5,27 @@ import java.util.*;
 import java.io.*;
 
 public class BF_Ä«À×´Þ·Â {
-	static int m[];
-	static int n[];
-	static int x[];
-	static int y[];
-	static int tc;
-	static int result;
-	static StringBuilder sb = new StringBuilder();
-
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-		tc = Integer.parseInt(br.readLine());
-		m = new int[tc];
-		n = new int[tc];
-		x = new int[tc];
-		y = new int[tc];
+		int tc = Integer.parseInt(br.readLine());
 
 		for (int i = 0; i < tc; i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
-			m[i] = Integer.parseInt(st.nextToken());
-			n[i] = Integer.parseInt(st.nextToken());
-			x[i] = Integer.parseInt(st.nextToken());
-			y[i] = Integer.parseInt(st.nextToken());
+			boolean excep = false;
+			int m = Integer.parseInt(st.nextToken());
+			int n = Integer.parseInt(st.nextToken());
+			int x = Integer.parseInt(st.nextToken()) - 1;
+			int y = Integer.parseInt(st.nextToken()) - 1;
+
+			for (int j = x; j < (n * m); j += m) {
+				if (j % n == y) {
+					System.out.println(j + 1);
+					excep = true;
+					break;
+				}
+			}
+			if (!excep)
+				System.out.println(-1);
 		}
-
-		int break_point = 0;
-		result = 0;
-
-
-		System.out.println(sb);
 	}
-
 }
