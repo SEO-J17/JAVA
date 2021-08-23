@@ -35,6 +35,7 @@ public class Επ»η_14501 {
 			
 		}
 
+		
 		if (date + arr[date][0] <= n) {
 			calc(date + arr[date][0], sum + arr[date][1]);
 		} else
