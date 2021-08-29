@@ -33,16 +33,18 @@ public class 링크와스타트_15661 {
 			return;
 		}
 
-		for (int i = 0; i < n; i++) {
+		for (int i = node; i < n; i++) {
 			if (!visit[i]) {
 				visit[i] = true;
-				search(depth + 1, i + 1);
+				search(depth + 1, i);
 				visit[i] = false;
 			}
 		}
 
 	}
 
+	
+	
 	private static int calc() {
 		int a = 0, b = 0;
 		for (int i = 0; i < n; i++) {
