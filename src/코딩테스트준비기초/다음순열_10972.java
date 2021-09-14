@@ -6,49 +6,53 @@ import java.util.*;
 public class 다음순열_10972 {
 	static int n;
 	static int arr[];
-	static int last[];
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		n = sc.nextInt();
-		int temp = n;
-		boolean islast = false;
 
 		arr = new int[n];
-		last = new int[n];
 
 		for (int i = 0; i < n; i++) {
 			arr[i] = sc.nextInt();
 		}
 
-		for (int i = 0; i < n; i++) {
-			last[i] = temp--;
-			if (last[i] == arr[i]) {
-				islast = true;
-			} else {
-				islast = false;
-				break;
-			}
-		}
-
-		if (n == 1 || islast == true) {
-			System.out.println(-1);
-		} else if (n == 2) {
-			System.out.print("2" + " " + "1");
-		} else {
-			calc();
+		if (calc()) {
 			for (int d : arr) {
 				System.out.print(d + " ");
 			}
-		}
-
+			System.out.println();
+		} else
+			System.out.println("-1");
 	}
 
-	private static void calc() {
-		for (int i = n - 1; i >= 1; i--) {
-			
+	private static boolean calc() {
+		int i = arr.length - 1;
+		while (i > 0 && arr[i - 1] >= arr[i]) {
+			i--;
 		}
+		if (i <= 0)
+			return false;
 
+		int j = arr.length - 1;
+		while (arr[i - 1] >= arr[j]) {
+			j--;
+		}
+		int temp = arr[j];
+		arr[j] = arr[i - 1];
+		arr[i - 1] = temp;
+
+		int start = i;
+		int end = arr.length - 1;
+
+		while (start < end) {
+			int tmp = arr[end];
+			arr[end] = arr[start];
+			arr[start] = tmp;
+			start++;
+			end--;
+		}
+		return true;
 	}
 
 }
