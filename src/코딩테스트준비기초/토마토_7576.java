@@ -4,13 +4,13 @@ import java.io.*;
 import java.util.*;
 
 public class 토마토_7576 {
-	static int n, m, day = 0;
+	static int n, m, cnt;
 	static int arr[][];
 	static int dx[] = { 0, 0, -1, 1 };
 	static int dy[] = { 1, -1, 0, 0 };
 	static Queue<Dot> qu = new LinkedList<>();
 
-	static class Dot {
+	private static class Dot {
 		int x;
 		int y;
 		int cnt;
@@ -25,8 +25,8 @@ public class 토마토_7576 {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		int n = Integer.parseInt(st.nextToken());
-		int m = Integer.parseInt(st.nextToken());
+		n = Integer.parseInt(st.nextToken());
+		m = Integer.parseInt(st.nextToken());
 
 		arr = new int[m][n];
 
@@ -35,8 +35,9 @@ public class 토마토_7576 {
 			for (int j = 0; j < n; j++) {
 				arr[i][j] = Integer.parseInt(st.nextToken());
 				if (arr[i][j] == 1) {
-					qu.offer(new Dot(i, j, 0));
+					qu.add(new Dot(i, j, 0));
 				}
+
 			}
 		}
 
@@ -48,21 +49,22 @@ public class 토마토_7576 {
 
 		while (!qu.isEmpty()) {
 			Dot dot = qu.poll();
-			day = dot.cnt;
+			cnt = dot.cnt;
+
 			for (int i = 0; i < 4; i++) {
 				int xx = dot.x + dx[i];
 				int yy = dot.y + dy[i];
 				if (xx >= 0 && yy >= 0 && xx < m && yy < n) {
 					if (arr[xx][yy] == 0) {
 						arr[xx][yy] = 1;
-						qu.add(new Dot(xx, yy, day + 1));
+						qu.add(new Dot(xx, yy, cnt + 1));
 					}
 				}
 			}
 		}
 
 		if (chktomato()) {
-			System.out.println(day);
+			System.out.println(cnt);
 		} else
 			System.out.println(-1);
 
