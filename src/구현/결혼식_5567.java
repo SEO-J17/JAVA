@@ -28,7 +28,7 @@ public class °áÈ¥½Ä_5567 {
 		
 		while (!qu.isEmpty()) {
 			int start = qu.poll();
-			for (int i = 1; i <= n; i++) {
+			for (int i = start+1; i <= n; i++) {
 				if (start == 1 && arr[start][i] == 1) {
 					qu.add(i);
 					chk[i] = true;
