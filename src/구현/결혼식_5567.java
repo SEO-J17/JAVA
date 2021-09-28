@@ -7,6 +7,7 @@ public class 결혼식_5567 {
 	static int n, m; // m = 리스트의 길이
 	static int arr[][];
 	static boolean chk[];
+	static boolean visit[];
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -15,6 +16,8 @@ public class 결혼식_5567 {
 
 		arr = new int[n + 1][n + 1];
 		chk = new boolean[n + 1];
+		visit = new boolean[n + 1];
+		
 		for (int i = 0; i < m; i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			int a = Integer.parseInt(st.nextToken());
@@ -26,19 +29,21 @@ public class 결혼식_5567 {
 		int cnt = 0;
 		qu.add(1);
 		chk[1] = true;
-
+		visit[1] = true;
 		while (!qu.isEmpty()) {
 			int start = qu.poll();
 			for (int i = 1; i <= n; i++) {
-				if(start == 1 && arr[start][i] == 1) {
+				if (start == 1 && arr[start][i] == 1) {
 					qu.add(i);
 					chk[i] = true;
+					visit[i] = true;
 					cnt++;
-				}else if (arr[start][i] == 1 && !chk[i]) {
+				} else if (arr[start][i] == 1 && !chk[i] && !visit[i]) {
+					visit[i] = true;
 					cnt++;
 				}
 			}
-		}	
+		}
 
 		System.out.println(cnt);
 
