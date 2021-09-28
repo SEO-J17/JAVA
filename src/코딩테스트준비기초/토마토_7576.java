@@ -46,7 +46,6 @@ public class ≈‰∏∂≈‰_7576 {
 	}
 
 	private static void calc() {
-
 		while (!qu.isEmpty()) {
 			Dot dot = qu.poll();
 			cnt = dot.cnt;
