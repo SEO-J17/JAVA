@@ -13,6 +13,7 @@ public class 한줄로서기_1138 {
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		StringBuilder sb = new StringBuilder();
 		ArrayList<Integer> list = new ArrayList<>();
+		
 		for (int i = 1; i <= n; i++) {
 			arr[i] = Integer.parseInt(st.nextToken());
 		}
