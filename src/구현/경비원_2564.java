@@ -37,5 +37,6 @@ public class °æºñ¿ø_2564 {
 		}
 
 		System.out.println(sum);
+		
 	}
 }
