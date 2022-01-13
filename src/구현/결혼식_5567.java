@@ -5,6 +5,8 @@ import java.util.*;
 
 public class °áÈ¥½Ä_5567 {
 	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int n = Integer.parseInt(br.readLine());
 		int m = Integer.parseInt(br.readLine());
 
 		int arr[][] = new int[n + 1][n + 1];
