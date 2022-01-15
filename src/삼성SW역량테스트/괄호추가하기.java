@@ -1,5 +1,5 @@
 //16637
-package SW역량테스트준비;
+package 삼성SW역량테스트;
 import java.io.*;
 import java.util.*;
 public class 괄호추가하기 {
