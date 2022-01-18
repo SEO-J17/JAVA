@@ -36,7 +36,7 @@ public class 캐슬디펜스_A형 {
 
 	private static void find(int start, int num, int count, ArrayList<Integer> attacker) {
 		if (count == 0) {
-			init();
+			//init();
 			calc(attacker);
 			return;
 		}
