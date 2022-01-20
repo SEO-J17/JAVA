@@ -5,67 +5,52 @@ import java.io.*;
 import java.util.*;
 
 public class MooTube {
-	static long arr[][];
-	static int n, q;
-
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		n = Integer.parseInt(st.nextToken());
-		q = Integer.parseInt(st.nextToken());
-		arr = new long[n + 1][n + 1];
+		int n = Integer.parseInt(st.nextToken());
+		int question = Integer.parseInt(st.nextToken());
+		ArrayList<int[]>[] list = new ArrayList[n + 1];
+
+		for (int i = 1; i <= n; i++) {
+			list[i] = new ArrayList<int[]>();
+		}
 
 		for (int i = 0; i < n - 1; i++) {
 			st = new StringTokenizer(br.readLine());
-			int x1 = Integer.parseInt(st.nextToken());
-			int x2 = Integer.parseInt(st.nextToken());
-			long val = Long.parseLong(st.nextToken());
-			arr[x1][x2] = arr[x2][x1] = val;
+			int p = Integer.parseInt(st.nextToken());
+			int q = Integer.parseInt(st.nextToken());
+			int r = Integer.parseInt(st.nextToken());
+			list[p].add(new int[] { q, r });
+			list[q].add(new int[] { p, r });
 		}
 
-		find();
-		
 		StringBuilder sb = new StringBuilder();
 
-		for (int i = 0; i < q; i++) {
+		for (int i = 0; i < question; i++) {
 			st = new StringTokenizer(br.readLine());
-			long k = Long.parseLong(st.nextToken());
+			int k = Integer.parseInt(st.nextToken());
 			int v = Integer.parseInt(st.nextToken());
-			long cnt = 0;
+			int cnt = 0;
+			
+			Queue<Integer> qu = new LinkedList<>();
+			boolean[] visit = new boolean[n + 1];
+			visit[v] = true;
 
-			for (int d = 1; d <= n; d++) {
-				if (arr[v][d] >= k && v != d) {
-					++cnt;
+			qu.offer(v);
+			while (!qu.isEmpty()) {
+				int temp = qu.poll();
+				for (int[] d : list[temp]) {
+					if (!visit[d[0]] && d[1] >= k) {
+						cnt++;
+						qu.offer(d[0]);
+						visit[d[0]] = true;
+					}
 				}
 			}
 			sb.append(cnt).append("\n");
 		}
-
-		System.out.print(sb);
-
-	}
-
-	private static void find() {
-		for (int i = 1; i <= n; i++) {
-			for (int j = 1; j <= n; j++) {
-				if (i == j) {
-					continue;
-				}
-
-				if (arr[i][j] > 0) {
-					long temp = arr[i][j];
-					for (int k = 1; k <= n; k++) {
-						if (k == j) {
-							continue;
-						}
-						if (arr[j][k] > 0) {
-							arr[i][k] = Math.min(temp, arr[j][k]);
-						}
-
-					}
-				}
-
-			}
-		}
+		
+		System.out.println(sb);
 	}
 }
