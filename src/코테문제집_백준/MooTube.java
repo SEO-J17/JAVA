@@ -1,6 +1,7 @@
 //15591번
 package 코테문제집_백준;
 
+import java.awt.Point;
 import java.io.*;
 import java.util.*;
 
@@ -10,10 +11,10 @@ public class MooTube {
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		int n = Integer.parseInt(st.nextToken());
 		int question = Integer.parseInt(st.nextToken());
-		ArrayList<int[]>[] list = new ArrayList[n + 1];
+		ArrayList<Point> list[] = new ArrayList[n + 1];				
 
 		for (int i = 1; i <= n; i++) {
-			list[i] = new ArrayList<int[]>();
+			list[i] = new ArrayList<>();		//배열안에 ArrayList를 넣는것임!!
 		}
 
 		for (int i = 0; i < n - 1; i++) {
@@ -21,8 +22,8 @@ public class MooTube {
 			int p = Integer.parseInt(st.nextToken());
 			int q = Integer.parseInt(st.nextToken());
 			int r = Integer.parseInt(st.nextToken());
-			list[p].add(new int[] { q, r });
-			list[q].add(new int[] { p, r });
+			list[p].add(new Point(q, r));
+			list[q].add(new Point(p, r));
 		}
 
 		StringBuilder sb = new StringBuilder();
@@ -32,7 +33,7 @@ public class MooTube {
 			int k = Integer.parseInt(st.nextToken());
 			int v = Integer.parseInt(st.nextToken());
 			int cnt = 0;
-			
+
 			Queue<Integer> qu = new LinkedList<>();
 			boolean[] visit = new boolean[n + 1];
 			visit[v] = true;
@@ -40,17 +41,17 @@ public class MooTube {
 			qu.offer(v);
 			while (!qu.isEmpty()) {
 				int temp = qu.poll();
-				for (int[] d : list[temp]) {
-					if (!visit[d[0]] && d[1] >= k) {
+				for (Point d : list[temp]) {
+					if (!visit[d.x] && d.y >= k) {
 						cnt++;
-						qu.offer(d[0]);
-						visit[d[0]] = true;
+						qu.offer(d.x);
+						visit[d.x] = true;
 					}
 				}
 			}
 			sb.append(cnt).append("\n");
 		}
-		
+
 		System.out.println(sb);
 	}
 }
