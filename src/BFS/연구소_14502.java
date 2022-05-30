@@ -11,6 +11,7 @@ public class 연구소_14502 {
 	static int n, m;
 	static int map[][];
 	static int max_zone = Integer.MIN_VALUE;
+	static ArrayList<Point> list = new ArrayList<>();
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -23,6 +24,9 @@ public class 연구소_14502 {
 			st = new StringTokenizer(br.readLine());
 			for (int j = 0; j < m; j++) {
 				map[i][j] = Integer.parseInt(st.nextToken());
+				if (map[i][j] == 2) {
+					list.add(new Point(i, j));
+				}
 			}
 		}
 
@@ -30,9 +34,19 @@ public class 연구소_14502 {
 		System.out.println(max_zone);
 	}
 
-	private static void dfs(int wall) {
-		if (wall == 3) { // 벽이 3개가 되면 bfs로 바이러스 퍼짐상태 탐색시작.
-			bfs();
+	private static void dfs(int wall) {		//벽세우기
+		if (wall == 3) { // 벽이 3개가 되면 바이러스 퍼짐상태 탐색시작.
+			// 원본 맵을 손상시키지 않기 위해 맵 카피.
+			int copy_map[][] = new int[n][m];
+			for (int i = 0; i < n; i++) {
+				copy_map[i] = map[i].clone();
+			}
+			
+			for (Point point : list) {
+				calc(point.x, point.y, copy_map);
+			}
+			
+			check(copy_map);
 			return;
 		}
 
@@ -48,40 +62,18 @@ public class 연구소_14502 {
 
 	}
 
-	private static void bfs() {
-		Queue<Point> qu = new LinkedList<>();
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < m; j++) {
-				if (map[i][j] == 2) {
-					qu.add(new Point(i, j)); // 바이러스 좌표값 저장
+	private static void calc(int x, int y, int[][] copy_map) {
+		for (int i = 0; i < 4; i++) {
+			int xx = x + dx[i];
+			int yy = y + dy[i];
+			if (xx >= 0 && yy >= 0 && xx < n && yy < m) {
+				if (copy_map[xx][yy] == 0) {
+					copy_map[xx][yy] = 2;
+					calc(xx, yy, copy_map);
 				}
 			}
 		}
 
-		// 원본 맵을 손상시키지 않기 위해 맵 카피.
-		int copy_map[][] = new int[n][m];
-		for (int i = 0; i < n; i++) {
-			copy_map[i] = map[i].clone();
-		}
-
-		while (!qu.isEmpty()) {
-			Point temp = qu.poll();
-			for (int i = 0; i < 4; i++) {
-				int xx = temp.x + dx[i];
-				int yy = temp.y + dy[i];
-
-				// 빈칸일 경우에 바이러스를 퍼트린다.
-				if (xx >= 0 && xx < n && yy >= 0 && yy < m) {
-					if (copy_map[xx][yy] == 0) {
-						copy_map[xx][yy] = 2;
-						qu.add(new Point(xx, yy));
-					}
-				}
-			}
-		}
-
-		// 마지막으로 안전영역 체크하는 함수.
-		check(copy_map);
 	}
 
 	private static void check(int[][] copy_map) {
@@ -93,7 +85,7 @@ public class 연구소_14502 {
 				}
 			}
 		}
-		if(max_zone < cnt) {
+		if (max_zone < cnt) {
 			max_zone = cnt;
 		}
 	}
