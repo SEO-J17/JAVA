@@ -1,5 +1,5 @@
 //2583
-package DFS;
+package 그래프탐색;
 import java.io.*;
 import java.util.*;
 public class 영역구하기 {

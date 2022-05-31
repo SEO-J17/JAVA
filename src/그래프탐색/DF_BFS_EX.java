@@ -1,5 +1,5 @@
 //1260 정점개수,간선개수,탐색을 시작할 번호가 주어지고 dfs,bfs수행한 결과를 출력해라.
-package DFSandBFS;
+package 그래프탐색;
 
 import java.io.BufferedReader;
 import java.io.IOException;

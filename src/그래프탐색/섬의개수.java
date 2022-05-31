@@ -1,5 +1,5 @@
 //4963
-package DFS;
+package ±×·¡ÇÁÅ½»ö;
 import java.io.*;
 import java.util.*;
 public class ¼¶ÀÇ°³¼ö {

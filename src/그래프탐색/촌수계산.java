@@ -1,5 +1,5 @@
 //2644
-package DFS;
+package 그래프탐색;
 
 import java.util.*;
 import java.io.*;

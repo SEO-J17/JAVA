@@ -1,5 +1,5 @@
 //2468
-package DFS;
+package 그래프탐색;
 import java.util.*;
 import java.io.*;
 public class 안전영역 {

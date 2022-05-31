@@ -1,6 +1,6 @@
 //2606 컴퓨터들이 서로 연결되어 있고 하나가 걸리면 연결된 컴은 전부 걸린다
 //1번 컴퓨터가 바이러스에 걸렸을때 1번을 통해 바이러스가 걸리게 되는 컴퓨터의 수를 출력해라.
-package DFSandBFS;
+package 그래프탐색;
 
 import java.io.BufferedReader;
 import java.io.IOException;

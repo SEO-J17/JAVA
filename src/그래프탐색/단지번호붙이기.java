@@ -1,5 +1,5 @@
 //2667
-package BFS;
+package 그래프탐색;
 import java.awt.Point;
 import java.io.*;
 import java.util.*;
