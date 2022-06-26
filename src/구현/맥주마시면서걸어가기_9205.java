@@ -23,40 +23,17 @@ public class 맥주마시면서걸어가기_9205 {
 			}
 
 			st = new StringTokenizer(br.readLine());
-			Point festival = new Point(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
+			list.add(new Point(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())));
+			
+			calc(list);
 
-			
-			if ((Math.abs(home.x - festival.x) + Math.abs(home.y - festival.y)) <= 1000) {
-				sb.append("happy").append("\n");
-				continue;
-			}
-			
-			
-			boolean flag = false;
-			for (int i = 0; i < stores_num; i++) {
-				Point temp = list.get(i); // 편의점 좌표
-				if ((Math.abs(home.x - temp.x) + Math.abs(home.y - temp.y)) <= 1000) {
-					home.x = temp.x;
-					home.y = temp.y;
-				} 
-				
-				if ((Math.abs(home.x - festival.x) + Math.abs(home.y - festival.y)) <= 1000) {
-					sb.append("happy").append("\n");
-					flag = true;
-					break;
-				}
-
-			}
-
-			if (flag) {
-				continue;
-			}
-			
-			sb.append("sad").append("\n");
-			
 		}
 
 		System.out.println(sb);
 
+	}
+
+	private static void calc(ArrayList<Point> list) {
+		Queue<Point> qu = new LinkedList();
 	}
 }
