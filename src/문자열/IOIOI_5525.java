@@ -1,37 +1,30 @@
 package ¹®ÀÚ¿­;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 public class IOIOI_5525 {
-	public static void main(String[] args) throws NumberFormatException, IOException {
+	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(br.readLine());
 		int m = Integer.parseInt(br.readLine());
 		String s = br.readLine();
-		StringBuilder sb = new StringBuilder();
-		sb.append("IOI");
-		for (int i = 1; i < n; i++) {
-			sb.append("OI");
-		}
-		String p = sb.toString();
 
+		int answer = 0;
 		int cnt = 0;
-		int s_len = s.length();
-		int p_len = p.length();
-		for (int i = 0; i < m; i++) {
-			if (s_len - i >= p_len) {
-				if (s.charAt(i) == 'I') {
-					if (s.substring(i, p_len + i).contains(p)) {
-						cnt++;
-					}
+		for (int i = 1; i < m - 1; i++) {
+			if (s.charAt(i - 1) == 'I' && s.charAt(i) == 'O' && s.charAt(i + 1) == 'I') {
+				cnt++;
+				if (cnt == n) {
+					cnt--;
+					answer++;
 				}
+				i++;
 			} else {
-				break;
+				cnt = 0;
 			}
 		}
 
-		System.out.println(cnt);
-
+		System.out.println(answer);
 	}
 }
