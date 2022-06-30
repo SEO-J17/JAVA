@@ -1,6 +1,5 @@
 package ½Ã¹Ä·¹ÀÌ¼Ç;
 
-import java.awt.Point;
 import java.io.*;
 import java.util.*;
 
@@ -25,17 +24,6 @@ public class º½¹ö¸Ç_16918 {
 		}
 
 		StringBuilder sb = new StringBuilder();
-		if (t == 1) {
-			for (char[] d : arr) {
-				for (char c : d) {
-					sb.append(c);
-				}
-				sb.append("\n");
-			}
-			System.out.print(sb);
-			return;
-		}
-
 		if (t % 2 == 0) {
 			for (int i = 0; i < n; i++) {
 				for (int j = 0; j < m; j++) {
@@ -46,22 +34,22 @@ public class º½¹ö¸Ç_16918 {
 
 			System.out.print(sb);
 			return;
-		}
-
-		int time = 3;
-		while (time <= t) {
-			visited = new boolean[n][m];
-			for (int i = 0; i < n; i++) {
-				for (int j = 0; j < m; j++) {
-					if (arr[i][j] == 'O') {
-						calc(i, j);
-					} else if (arr[i][j] == '.' && !visited[i][j]) {
-						arr[i][j] = 'O';
-						visited[i][j] = true;
+		} else {
+			int time = 3;
+			while (time <= t) {
+				visited = new boolean[n][m];
+				for (int i = 0; i < n; i++) {
+					for (int j = 0; j < m; j++) {
+						if (arr[i][j] == 'O') {
+							calc(i, j);
+						} else if (arr[i][j] == '.' && !visited[i][j]) {
+							arr[i][j] = 'O';
+							visited[i][j] = true;
+						}
 					}
 				}
+				time += 2;
 			}
-			time += 2;
 		}
 		for (char[] d : arr) {
 			for (char c : d) {
@@ -69,7 +57,6 @@ public class º½¹ö¸Ç_16918 {
 			}
 			sb.append("\n");
 		}
-
 		System.out.println(sb);
 	}
 
